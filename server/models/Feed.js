@@ -6,7 +6,7 @@ const FeedSchema = new Schema({
     type: String,
     required: true
   },
-  URL: {
+  url: {
     type: String,
     required: true
   }

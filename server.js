@@ -1,11 +1,25 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const config = require("config");
 
 const app = express();
 
 // Bodyparser Middleware
 app.use(express.json());
+
+// CORS
+const whitelist = ["http://localhost:3000"];
+const corsOptions = {
+  origin: function(origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  }
+};
+app.use(cors(corsOptions));
 
 // DB Config
 const db = config.get("mongoURI");
@@ -20,7 +34,7 @@ mongoose
   .catch(err => console.log(err));
 
 // Use Routes
-app.use("/api/feeds", require("./routes/api/Feeds"));
+app.use("/api/feeds", require("./server/routes/api/Feeds"));
 
 const port = process.env.PORT || 5000;
 

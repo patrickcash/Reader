@@ -1,0 +1,76 @@
+.sidebar-column {
+  padding-right: 0px;
+  padding-left: 0px;
+  background-color: dimgrey;
+  border-color: dimgrey;
+}
+
+.items-column {
+  padding-right: 0px;
+  padding-left: 0px;
+  background-color: white;
+}
+
+.content-column {
+  padding-right: 0px;
+  padding-left: 5px;
+  background-color: white;
+}
+
+#feed-card {
+  border-color: dimgrey;
+}
+#feed-header {
+  background-color: dimgrey;
+  border-color: dimgrey;
+  font-weight: bold;
+  color: lightgrey;
+}
+
+#feed-list {
+  max-height: 100vh;
+  overflow: auto;
+}
+
+#feed {
+  background-color: dimgrey;
+  color: lightgrey;
+}
+
+#feed.active {
+  border-color: grey;
+  background-color: grey;
+  color: lightgrey;
+}
+
+#item-header {
+  font-weight: bold;
+}
+
+#item-list {
+  max-height: 100vh;
+  overflow: auto;
+}
+
+#feed-item.active {
+  border-color: grey;
+  background-color: grey;
+  color: lightgrey;
+}
+
+#feed-item-heading {
+  font-weight: bold;
+}
+
+#feed-item-author {
+  font-style: italic;
+}
+
+#content-header {
+  font-weight: bold;
+}
+
+#content-body {
+  max-height: 100vh;
+  overflow: auto;
+}

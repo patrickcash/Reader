@@ -13,6 +13,9 @@ import { connect } from "react-redux";
 import { getFeeds, addFeed, deleteFeed } from "../../actions/feeds";
 import PropTypes from "prop-types";
 
+/*
+ * UI for adding and deleting feeds
+ */
 class ManageFeeds extends Component {
   state = {
     name: "",

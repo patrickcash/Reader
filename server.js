@@ -35,6 +35,7 @@ mongoose
 
 // Use Routes
 app.use("/api/feeds", require("./server/routes/api/feeds"));
+app.use("/api/items", require("./server/routes/api/items"));
 app.use("/api/users", require("./server/routes/api/users"));
 
 // Serve static assets if in production

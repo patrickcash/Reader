@@ -33,8 +33,8 @@ class ManageFeeds extends Component {
     this.props.getFeeds();
   }
 
-  onDeleteClick = id => {
-    this.props.deleteFeed(id);
+  onDeleteClick = url => {
+    this.props.deleteFeed(url);
   };
 
   // update name and url value any time field is changed
@@ -45,6 +45,7 @@ class ManageFeeds extends Component {
   // on Add Feed click
   onSubmit = e => {
     e.preventDefault();
+    e.target.reset();
 
     const newFeed = {
       name: this.state.name,
@@ -83,14 +84,14 @@ class ManageFeeds extends Component {
         </Form>
         <h4 style={{ marginTop: "2rem" }}>Feeds:</h4>
         <ListGroup>
-          {feeds.map(({ _id, name }) => (
-            <ListGroupItem key={_id}>
+          {feeds.map(({ name, url }) => (
+            <ListGroupItem key={url}>
               {name}
               <span className="float-right">
                 <Button
                   color="danger"
                   size="sm"
-                  onClick={this.onDeleteClick.bind(this, _id)}
+                  onClick={() => this.onDeleteClick(url)}
                 >
                   &times;
                 </Button>

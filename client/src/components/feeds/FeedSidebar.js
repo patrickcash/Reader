@@ -3,6 +3,7 @@ import { Card, CardHeader, ListGroup, ListGroupItem } from "reactstrap";
 import { connect } from "react-redux";
 import { getFeeds, getFeedItems } from "../../actions/feeds";
 import isEmpty from "lodash/isEmpty";
+import PropTypes from "prop-types";
 
 /*
  * Displays all of the feeds the user is subscibed to
@@ -15,19 +16,25 @@ class FeedSidebar extends Component {
     };
   }
 
+  static propTypes = {
+    getFeeds: PropTypes.func.isRequired,
+    getFeedItems: PropTypes.func.isRequired,
+    feeds: PropTypes.array.isRequired
+  };
+
   /*
    * Load the initial feed list into the list
    */
   componentDidMount() {
-    this.props.getFeedList();
+    this.props.getFeeds();
   }
 
   /*
    * Select to first feed in the list to populate the feed item list
    */
   componentDidUpdate(prevProps) {
-    if (isEmpty(prevProps.feedList)) {
-      this.props.getFeed(this.props.feedList.feeds[0].feedURL);
+    if (isEmpty(prevProps.feeds)) {
+      this.props.getFeedItems(this.props.feeds[0].url);
     }
   }
 
@@ -35,15 +42,15 @@ class FeedSidebar extends Component {
    * Load the feed items for selected feed
    */
   handleFeedClick = index => {
-    this.props.getFeed(this.props.feedList.feeds[index].feedURL);
+    this.props.getFeedItems(this.props.feeds[index].url);
     this.setState({ activeFeedIndex: index });
   };
 
-  renderFeedList = feedList => {
-    if (feedList && feedList.feeds) {
-      return feedList.feeds.map((item, index) => (
+  renderFeeds = feeds => {
+    if (feeds) {
+      return feeds.map((item, index) => (
         <ListGroupItem
-          id="feed"
+          className="feed"
           key={index}
           active={index === this.state.activeFeedIndex}
           onClick={() => this.handleFeedClick(index)}
@@ -59,13 +66,13 @@ class FeedSidebar extends Component {
       <Card id="feed-card">
         <CardHeader id="feed-header">Feeds</CardHeader>
         <ListGroup flush id="feed-list">
-          {isEmpty(this.props.feedList) ? (
+          {isEmpty(this.props.feeds) ? (
             <ListGroup id="item-list">
-              <ListGroupItem id="feed-item">Loading Feeds</ListGroupItem>
+              <ListGroupItem className="feed-item">Loading Feeds</ListGroupItem>
             </ListGroup>
           ) : (
             <ListGroup id="item-list">
-              {this.renderFeedList(this.props.feedList)}
+              {this.renderFeeds(this.props.feeds)}
             </ListGroup>
           )}
         </ListGroup>
@@ -75,7 +82,7 @@ class FeedSidebar extends Component {
 }
 
 const mapStateToProps = state => ({
-  feedList: state.feedList
+  feeds: state.feeds.feeds
 });
 
 export default connect(

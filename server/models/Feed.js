@@ -4,10 +4,12 @@ const Schema = mongoose.Schema;
 const FeedSchema = new Schema({
   name: {
     type: String,
+    unique: true,
     required: true
   },
   url: {
     type: String,
+    unique: true,
     required: true
   },
   _user: {

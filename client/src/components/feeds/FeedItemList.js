@@ -7,7 +7,7 @@ import {
   ListGroupItemText
 } from "reactstrap";
 import { connect } from "react-redux";
-import { getFeedItems } from "../../actions/feeds";
+import { getItemContent } from "../../actions/feeds";
 import isEmpty from "lodash/isEmpty";
 
 /*
@@ -26,7 +26,7 @@ class FeedItemList extends Component {
    */
   componentDidUpdate(prevProps) {
     if (prevProps.feedItems !== this.props.feedItems) {
-      this.props.getFeedItem(0);
+      this.props.getItemContent(0);
       if (this.state.activeFeedItem !== 0) {
         this.setState({ activeFeedItem: 0 });
       }
@@ -37,14 +37,14 @@ class FeedItemList extends Component {
    * Display the content of the selected item in the item content card
    */
   handleFeedItemClick = index => {
-    this.props.getFeedItem(index);
+    this.props.getItemContent(index);
     this.setState({ activeFeedItem: index });
   };
 
   renderFeedItems = feedItems => {
     return feedItems.map((item, index) => (
       <ListGroupItem
-        id="feed-item"
+        className="feed-item"
         key={"item" + index}
         active={index === this.state.activeFeedItem}
         onClick={() => this.handleFeedItemClick(index)}
@@ -52,9 +52,11 @@ class FeedItemList extends Component {
         <ListGroupItemHeading id="feed-item-heading">
           {item.title}
         </ListGroupItemHeading>
-        <ListGroupItemText id="feed-item-author">
-          Author: {item.author}
-        </ListGroupItemText>
+        {item.author && (
+          <ListGroupItemText id="feed-item-author">
+            Author: {item.author}
+          </ListGroupItemText>
+        )}
       </ListGroupItem>
     ));
   };
@@ -79,10 +81,10 @@ class FeedItemList extends Component {
 }
 
 const mapStateToProps = state => ({
-  feedItems: state.feedItems
+  feedItems: state.feeds.feedItems
 });
 
 export default connect(
   mapStateToProps,
-  { getFeedItems }
+  { getItemContent }
 )(FeedItemList);

@@ -47,13 +47,13 @@ export const addFeed = feed => (dispatch, getState) => {
 };
 
 // Delete the feed with passed in id
-export const deleteFeed = id => (dispatch, getState) => {
+export const deleteFeed = feed_url => (dispatch, getState) => {
   axios
-    .delete(`${feeds_url}${id}`, tokenConfig(getState))
+    .delete(`${feeds_url}?url=${feed_url}`, tokenConfig(getState))
     .then(response => {
       dispatch({
         type: DELETE_FEED,
-        payload: id
+        payload: feed_url
       });
     })
     .catch(error => {
@@ -66,7 +66,7 @@ export const deleteFeed = id => (dispatch, getState) => {
 // get items for a given feed
 export const getFeedItems = feed_url => (dispatch, getState) => {
   axios
-    .get(feed_items_url, feed_url, tokenConfig(getState))
+    .get(`${feed_items_url}/feed?url=${feed_url}`, tokenConfig(getState))
     .then(response => {
       dispatch({
         type: GET_FEED_ITEMS,
@@ -82,11 +82,8 @@ export const getFeedItems = feed_url => (dispatch, getState) => {
 
 // get the content for the selected feed item
 export const getItemContent = index => dispatch => {
-  return dispatch => {
-    const action = {
-      type: GET_ITEM_CONTENTS,
-      payload: index
-    };
-    dispatch(action);
-  };
+  dispatch({
+    type: GET_ITEM_CONTENTS,
+    payload: index
+  });
 };

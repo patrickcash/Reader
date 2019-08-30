@@ -17,7 +17,7 @@
   background-color: white;
 }
 
-#feed-card {
+.feed-card {
   border-color: dimgrey;
 }
 #feed-header {
@@ -32,12 +32,12 @@
   overflow: auto;
 }
 
-#feed {
+.feed {
   background-color: dimgrey;
   color: lightgrey;
 }
 
-#feed.active {
+.feed.active {
   border-color: grey;
   background-color: grey;
   color: lightgrey;
@@ -52,17 +52,17 @@
   overflow: auto;
 }
 
-#feed-item.active {
+.feed-item.active {
   border-color: grey;
   background-color: grey;
   color: lightgrey;
 }
 
-#feed-item-heading {
+.feed-item-heading {
   font-weight: bold;
 }
 
-#feed-item-author {
+.feed-item-author {
   font-style: italic;
 }
 

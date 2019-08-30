@@ -21,9 +21,9 @@ router.post("/", auth, (req, res) => {
   newFeed.save().then(feed => res.json(feed));
 });
 
-// delete feed with given id
-router.delete("/:id", auth, (req, res) => {
-  Feed.findById(req.params.id)
+// delete feed with given url
+router.delete("/", auth, (req, res) => {
+  Feed.findOne({ url: req.query.url })
     .then(feed => feed.remove().then(() => res.json({ success: true })))
     .catch(err => res.status(404).json({ success: false }));
 });

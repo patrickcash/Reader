@@ -42,7 +42,7 @@ class Header extends Component {
         <NavItem>
           <button
             onClick={this.props.logoutUser}
-            className="nav-link btn btn-primary btn-sm text-light"
+            className="nav-link btn btn-secondary btn-sm text-light"
           >
             Sign Out
           </button>
@@ -67,7 +67,7 @@ class Header extends Component {
 
     return (
       <div>
-        <Navbar color="dark" dark expand="sm" className="mb-5">
+        <Navbar color="success" dark expand="sm">
           <Container>
             <NavbarBrand href="/">Reader</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />

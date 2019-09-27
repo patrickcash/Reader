@@ -10,7 +10,7 @@ import FeedItemContent from "./FeedItemContent";
 class FeedReader extends Component {
   render() {
     return (
-      <Row>
+      <Row className="w-100">
         <Col md={3} className="sidebar-column">
           <FeedSidebar />
         </Col>

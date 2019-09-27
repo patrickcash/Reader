@@ -1,8 +1,8 @@
 .sidebar-column {
   padding-right: 0px;
   padding-left: 0px;
-  background-color: dimgrey;
-  border-color: dimgrey;
+  background-color: lightgrey;
+  border-color: lightgrey;
 }
 
 .items-column {
@@ -12,35 +12,32 @@
 }
 
 .content-column {
-  padding-right: 0px;
+  padding-right: 20px;
   padding-left: 5px;
   background-color: white;
 }
 
-.feed-card {
-  border-color: dimgrey;
-}
 #feed-header {
-  background-color: dimgrey;
-  border-color: dimgrey;
+  background-color: lightgrey;
+  border-color: lightgrey;
   font-weight: bold;
-  color: lightgrey;
 }
 
 #feed-list {
+  background-color: lightgrey;
+  border-color: lightgrey;
   max-height: 100vh;
   overflow: auto;
 }
 
 .feed {
-  background-color: dimgrey;
-  color: lightgrey;
+  background-color: lightgrey;
+  border-color: lightgrey;
 }
 
 .feed.active {
-  border-color: grey;
-  background-color: grey;
-  color: lightgrey;
+  background-color: darkgrey;
+  border-color: darkgrey;
 }
 
 #item-header {
@@ -53,17 +50,8 @@
 }
 
 .feed-item.active {
-  border-color: grey;
-  background-color: grey;
-  color: lightgrey;
-}
-
-.feed-item-heading {
-  font-weight: bold;
-}
-
-.feed-item-author {
-  font-style: italic;
+  background-color: darkgrey;
+  border-color: darkgrey;
 }
 
 #content-header {

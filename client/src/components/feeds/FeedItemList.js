@@ -64,17 +64,15 @@ class FeedItemList extends Component {
   render() {
     return (
       <Card id="item-card">
-        <ListGroup id="item-list">
-          {isEmpty(this.props.feedItems) ? (
-            <ListGroup id="item-list">
-              <ListGroupItem id="feed-item">Select a feed</ListGroupItem>
-            </ListGroup>
-          ) : (
-            <ListGroup id="item-list">
-              {this.renderFeedItems(this.props.feedItems)}
-            </ListGroup>
-          )}
-        </ListGroup>
+        {isEmpty(this.props.feedItems) ? (
+          <ListGroup id="item-list">
+            <ListGroupItem id="feed-item">Select a feed</ListGroupItem>
+          </ListGroup>
+        ) : (
+          <ListGroup id="item-list">
+            {this.renderFeedItems(this.props.feedItems)}
+          </ListGroup>
+        )}
       </Card>
     );
   }

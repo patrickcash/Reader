@@ -50,7 +50,7 @@ class FeedSidebar extends Component {
     if (feeds) {
       return feeds.map((item, index) => (
         <ListGroupItem
-          className="feed"
+          className="feed pl-5"
           key={index}
           active={index === this.state.activeFeedIndex}
           onClick={() => this.handleFeedClick(index)}
@@ -64,18 +64,20 @@ class FeedSidebar extends Component {
   render() {
     return (
       <Card id="feed-card">
-        <CardHeader id="feed-header">Feeds</CardHeader>
-        <ListGroup flush id="feed-list">
-          {isEmpty(this.props.feeds) ? (
-            <ListGroup id="item-list">
-              <ListGroupItem className="feed-item">Loading Feeds</ListGroupItem>
-            </ListGroup>
-          ) : (
-            <ListGroup id="item-list">
-              {this.renderFeeds(this.props.feeds)}
-            </ListGroup>
-          )}
-        </ListGroup>
+        <CardHeader className="pl-5 pb-3" id="feed-header">
+          Feeds
+        </CardHeader>
+        {isEmpty(this.props.feeds) ? (
+          <ListGroup id="feed-list">
+            <ListGroupItem className="feed pl-5">
+              Please Use "My Feeds" to add feeds
+            </ListGroupItem>
+          </ListGroup>
+        ) : (
+          <ListGroup id="feed-list">
+            {this.renderFeeds(this.props.feeds)}
+          </ListGroup>
+        )}
       </Card>
     );
   }

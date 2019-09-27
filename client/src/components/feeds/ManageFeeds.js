@@ -58,7 +58,7 @@ class ManageFeeds extends Component {
   render() {
     const { feeds } = this.props.feeds;
     return (
-      <Container>
+      <Container className="mt-5">
         <Form onSubmit={this.onSubmit}>
           <FormGroup>
             <Label for="name">Add Feed</Label>

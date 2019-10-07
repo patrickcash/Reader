@@ -12,24 +12,40 @@ For development or testing purposes the defaults are set to:
 
 For production change these or set an env var for those on deployment
 
-```bash
 Install dependencies for server
+
+```bash
 npm install
+```
 
 Install dependencies for client
+
+```bash
 npm run client-install
+```
 
 Run mongoDB server
+
+```bash
 mongod
+```
 
 Run the client & server with concurrently
+
+```bash
 npm run dev
+```
 
 Run the Express server only
+
+```bash
 npm run server
+```
 
 Run the React client only
-npm run client
 
-Server runs on http://localhost:5000 and client on http://localhost:3000
+```bash
+npm run client
 ```
+
+Server runs on <http://localhost:5000> and client on <http://localhost:3000>

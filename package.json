@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/patrickcash/Reader#readme",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "bcryptjs": "^2.4.3",
     "concurrently": "^4.1.0",
     "config": "^3.1.0",
